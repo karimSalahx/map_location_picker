@@ -222,7 +222,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   late LatLng _initialPosition = const LatLng(28.8993468, 76.6250249);
 
   /// initial address text
-  late String _address = "Tap on map to get address";
+  late String _address = 'إضغط على الخريطة ليظهر لك العنوان';
 
   /// Map type (default: MapType.normal)
   late MapType _mapType = MapType.normal;
@@ -391,55 +391,9 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                   setState(() {});
                 },
               ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Card(
-                  color: Theme.of(context).primaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(360),
-                  ),
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.5),
-                    child: PopupMenuButton(
-                      tooltip: 'Map Type',
-                      initialValue: _mapType,
-                      icon: Icon(
-                        Icons.layers,
-                        color: Theme.of(context).colorScheme.onPrimary,
-                      ),
-                      onSelected: (MapType mapType) {
-                        setState(() {
-                          _mapType = mapType;
-                        });
-                      },
-                      itemBuilder: (context) => const [
-                        PopupMenuItem(
-                          value: MapType.normal,
-                          child: Text('Normal'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.hybrid,
-                          child: Text('Hybrid'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.satellite,
-                          child: Text('Satellite'),
-                        ),
-                        PopupMenuItem(
-                          value: MapType.terrain,
-                          child: Text('Terrain'),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FloatingActionButton(
-                  tooltip: 'My Location',
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: Theme.of(context).colorScheme.onPrimary,
                   onPressed: () async {
@@ -487,7 +441,6 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                           showDialog(
                             context: context,
                             builder: (context) => AlertDialog(
-                              title: Text(widget.dialogTitle),
                               scrollable: true,
                               content: Column(
                                 mainAxisSize: MainAxisSize.min,
@@ -505,7 +458,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                               ),
                               actions: [
                                 TextButton(
-                                  child: const Text('Cancel'),
+                                  child: const Text('رجوع'),
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
@@ -516,7 +469,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                         },
                         child: Chip(
                           label: Text(
-                            "Tap to show ${(_geocodingResultList.length - 1)} more result options",
+                            'إختيار آخر  ${(_geocodingResultList.length - 1)} إضغط ليظهر لك',
                           ),
                         ),
                       ),
