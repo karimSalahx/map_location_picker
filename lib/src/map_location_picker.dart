@@ -385,6 +385,7 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
                   setState(() {});
                 },
               ),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: FloatingActionButton(
