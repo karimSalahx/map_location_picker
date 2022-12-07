@@ -150,9 +150,6 @@ class MapLocationPicker extends StatefulWidget {
   /// Hide Suggestions on keyboard hide
   final bool hideSuggestionsOnKeyboardHide;
 
-  /// Map type (default: MapType.normal)
-  final MapType mapType;
-
   /// Search text field controller
   final TextEditingController? searchController;
 
@@ -206,7 +203,6 @@ class MapLocationPicker extends StatefulWidget {
     this.components = const [],
     this.strictbounds = false,
     this.hideSuggestionsOnKeyboardHide = false,
-    this.mapType = MapType.normal,
     this.searchController,
   }) : super(key: key);
 
@@ -296,7 +292,6 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
   @override
   void initState() {
     _initialPosition = widget.currentLatLng ?? _initialPosition;
-    _mapType = widget.mapType;
     _searchController = widget.searchController ?? _searchController;
     super.initState();
   }
@@ -341,7 +336,6 @@ class _MapLocationPickerState extends State<MapLocationPicker> {
             padding: widget.padding,
             compassEnabled: widget.compassEnabled,
             liteModeEnabled: widget.liteModeEnabled,
-            mapType: widget.mapType,
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
